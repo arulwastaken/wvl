@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.webkit.ConsoleMessage
 import androidx.room.Room
-import com.arul.wvl.WebViewLogImpl
+import com.arul.wvl.WebViewLogListener
 import com.arul.wvl.db.LogDb
 import com.arul.wvl.ui.WvlMainActivity
 import com.arul.wvl.utils.SingletonHolder
@@ -30,7 +30,7 @@ open class WebViewEvent(val applicationContext: Context) {
     }
 
     @Volatile
-    private var listener: WebViewLogImpl? = null
+    private var listener: WebViewLogListener? = null
 
     fun log(consoleMessage: ConsoleMessage, sectionName: String) {
         val consoleLog = consoleMessage.getLog(sectionName)
@@ -48,7 +48,7 @@ open class WebViewEvent(val applicationContext: Context) {
         context.startActivity(Intent(context, WvlMainActivity::class.java))
     }
 
-    fun bindListener(listener: WebViewLogImpl?) {
+    fun bindListener(listener: WebViewLogListener?) {
         this.listener = listener
     }
 

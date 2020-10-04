@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arul.wvl.R
-import com.arul.wvl.WebViewLogImpl
+import com.arul.wvl.WebViewLogListener
 import com.arul.wvl.WvlLogAdapter
 import com.arul.wvl.bridge.WebViewEvent
 import com.arul.wvl.datasource.WvlLog
@@ -21,7 +21,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class WvlMainActivity : AppCompatActivity(), WebViewLogImpl {
+class WvlMainActivity : AppCompatActivity(), WebViewLogListener {
 
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var adapter: WvlLogAdapter

@@ -2,6 +2,6 @@ package com.arul.wvl
 
 import com.arul.wvl.datasource.WvlLog
 
-interface WebViewLogImpl {
+interface WebViewLogListener {
     fun onAppendLog(consoleLog: WvlLog)
 }
