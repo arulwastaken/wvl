@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.arul.wvl">
+
+    <application>
+<!--                    android:authorities="wvlder.${applicationId}"-->
+        <provider
+            android:name="com.arul.wvl.utils.WvlFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/wvl_file_paths" />
+        </provider>
+
+
+        <activity-alias
+            android:name="com.arul.wvl.ui.MainActivityLauncher"
+            android:enabled="@bool/wvl_add_launcher_icon"
+            android:label="@string/wvl_display_activity_label"
+            android:targetActivity="com.arul.wvl.ui.WvlMainActivity"
+            android:taskAffinity="com.arul.webviewlogger.${applicationId}">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+
+        <activity
+            android:name="com.arul.wvl.ui.WvlMainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:icon="@drawable/leak_canary_icon"
+            android:label="@string/wvl_display_activity_label"
+            android:taskAffinity="com.arul.webviewlogger.${applicationId}">
+
+        </activity>
+    </application>
+
+</manifest>

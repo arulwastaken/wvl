@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <bool name="wvl_add_dynamic_shortcut">true</bool>
+  <bool name="wvl_add_launcher_icon">true</bool>
+  <bool name="wvl_allow_in_non_debuggable_build">false</bool>
+</resources>
