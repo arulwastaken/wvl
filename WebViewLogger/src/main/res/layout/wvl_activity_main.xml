@@ -56,11 +56,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:fabSize="mini"
+        android:background="?selectableItemBackground"
         android:src="@drawable/ic_up_arrow"
         android:layout_above="@id/mvl_move_to_last"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
+        android:contentDescription="@string/move_to_top"
         />
 
 
@@ -69,11 +71,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:fabSize="mini"
+        android:background="?selectableItemBackground"
         android:src="@drawable/ic_down_arrow"
         android:layout_alignParentBottom="true"
+        app:backgroundTint="@null"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
+        android:contentDescription="@string/move_to_bottom"
          />
 
 

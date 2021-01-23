@@ -21,11 +21,11 @@ fun Date.convertToIso(): String {
     return PARSE_DATE_ISO.format(this)
 }
 
-fun ConsoleMessage.getLog(section: String? = null): WvlLog {
+internal fun ConsoleMessage.getLog(section: String? = null): WvlLog {
     return WvlLog(Date(), lineNumber(), message(), messageLevel(), section)
 }
 
-fun WvlLog.toDbLog(): com.arul.wvl.db.WvlLog {
+internal fun WvlLog.toDbLog(): com.arul.wvl.db.WvlLog {
     return com.arul.wvl.db.WvlLog(time.convertToIso(),message, logType.name, section, lineNumber)
 }
 

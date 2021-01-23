@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">My WebView Application</string>
+
+    <string name="wvl_report_email">arul@autonom8.com</string>
+    <string name="wvl_log_cache_size">20</string>
+
 </resources>

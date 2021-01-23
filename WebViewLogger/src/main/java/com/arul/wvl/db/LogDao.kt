@@ -20,8 +20,11 @@ interface LogDao {
 //    fun findByName(first: String, last: String): WvlLog
 
     @Insert
-    fun insertAll(vararg users: WvlLog)
+    fun insertAll(users: List<WvlLog>)
 
     @Delete
     fun delete(user: WvlLog)
+
+    @Query("DELETE FROM WvlLog")
+    fun deleteAll()
 }

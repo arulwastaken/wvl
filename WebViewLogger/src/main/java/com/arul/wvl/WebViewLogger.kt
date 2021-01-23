@@ -4,24 +4,34 @@ import android.app.Application
 import android.util.Log
 import android.webkit.ConsoleMessage
 import android.webkit.WebChromeClient
+import android.webkit.WebView
 import com.arul.wvl.bridge.WebViewEvent
 
-abstract class WebViewLogger(val application: Application) : WebChromeClient() {
+open class WebViewLogger(val application: Application) : WebChromeClient() {
 
-    private var event = WebViewEvent.getInstance(application)
+    val defaultSection = "WVL_SECTION"
 
-    abstract fun getSectionName(): String
+    private val event = WebViewEvent.getInstance(application)
 
     override fun onConsoleMessage(consoleMessage: ConsoleMessage?): Boolean {
-        Log.d("WebViewLogger", "onConsoleMessage() called with: consoleMessage = $consoleMessage")
-        consoleMessage?.let {
-            event.log(it, getSectionName())
-        }
-        return super.onConsoleMessage(consoleMessage)
+        Log.d("WebViewLogger", "Logger onConsoleMessage() called with: consoleMessage = $consoleMessage")
+        onConsoleMessage(consoleMessage, defaultSection)
+        return true
     }
 
-    fun setSection(sectionName: String) {
-        event.setSection(sectionName)
+    open fun onConsoleMessage(consoleMessage: ConsoleMessage?, section: String = "WVL_DEFAULT_SECTION") {
+        Log.d(
+            "WebViewLogger",
+            "Logger onConsoleMessage() called with: consoleMessage = $consoleMessage, section = $section end"
+        )
+        consoleMessage?.let {
+            event.log(it, section)
+        }
     }
+
+    override fun onReceivedTitle(view: WebView?, title: String?) {
+        super.onReceivedTitle(view, title)
+    }
+
 
 }

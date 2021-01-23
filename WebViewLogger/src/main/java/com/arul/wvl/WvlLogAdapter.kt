@@ -14,8 +14,7 @@ import com.arul.wvl.datasource.WvlLog
 import com.arul.wvl.utils.getFormatDate
 import kotlin.collections.ArrayList
 
-class WvlLogAdapter(val logs: ArrayList<WvlLog>, val context: Context): RecyclerView.Adapter<WvlLogAdapter.WvlViewHolder>() {
-
+internal class WvlLogAdapter(val logs: ArrayList<WvlLog>, val context: Context) : RecyclerView.Adapter<WvlLogAdapter.WvlViewHolder>() {
 
     @SuppressLint("InflateParams")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WvlViewHolder {
@@ -24,7 +23,7 @@ class WvlLogAdapter(val logs: ArrayList<WvlLog>, val context: Context): Recycler
     }
 
     override fun onBindViewHolder(holder: WvlViewHolder, position: Int) {
-        val log =  logs.get(position)
+        val log = logs.get(position)
         holder.bindLog(log, position)
     }
 
@@ -42,9 +41,9 @@ class WvlLogAdapter(val logs: ArrayList<WvlLog>, val context: Context): Recycler
 
     class WvlViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var time : TextView? = null
-        var log : TextView? = null
-        private var logLine: TextView? =null
+        var time: TextView? = null
+        var log: TextView? = null
+        private var logLine: TextView? = null
 
         private var logSection: RelativeLayout? = null
 
@@ -60,16 +59,15 @@ class WvlLogAdapter(val logs: ArrayList<WvlLog>, val context: Context): Recycler
             log?.text = consoleLog.message
             logLine?.text = "L: ${consoleLog.lineNumber}"
 
-            if(position % 2 == 0) {
+            if (position % 2 == 0) {
                 logSection?.setBackgroundColor(itemView.context.resources.getColor(R.color.light_periwinkle))
             } else {
                 logSection?.setBackgroundColor(Color.WHITE)
             }
 
-
             var colorByLog: Int = -1
 
-            when(consoleLog.logType) {
+            when (consoleLog.logType) {
                 ConsoleMessage.MessageLevel.WARNING -> {
                     colorByLog = R.color.yellow_light
                 }
@@ -81,10 +79,9 @@ class WvlLogAdapter(val logs: ArrayList<WvlLog>, val context: Context): Recycler
                 }
             }
 
-            if(colorByLog != -1) {
+            if (colorByLog != -1) {
                 logSection?.setBackgroundColor(itemView.context.resources.getColor(colorByLog))
             }
-
         }
     }
 }

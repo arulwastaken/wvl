@@ -4,15 +4,15 @@
 
     <application>
 <!--                    android:authorities="wvlder.${applicationId}"-->
-<!--        <provider-->
-<!--            android:name="com.arul.wvl.utils.WvlFileProvider"-->
-<!--            android:authorities="${applicationId}.provider"-->
-<!--            android:exported="false"-->
-<!--            android:grantUriPermissions="true">-->
-<!--            <meta-data-->
-<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
-<!--                android:resource="@xml/wvl_file_paths" />-->
-<!--        </provider>-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.arul.wvl.report.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/wvl_file_paths" />
+        </provider>
 
 
         <activity-alias
@@ -32,7 +32,7 @@
         <activity
             android:name="com.arul.wvl.ui.WvlMainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:icon="@drawable/leak_canary_icon"
+            android:icon="@drawable/ic_logs"
             android:label="@string/wvl_display_activity_label"
             android:taskAffinity="com.arul.webviewlogger.${applicationId}">
 
