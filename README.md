@@ -1,4 +1,7 @@
-[ ![Download](null/packages/arulmani/WebKit/wvl/images/download.svg?version=1.0.4) ](https://bintray.com/arulmani/WebKit/wvl/1.0.4/link)
+[ ![Download](https://api.bintray.com/packages/arulmani/WebKit/wvl/images/download.svg?version=1.0.4) ](https://bintray.com/arulmani/WebKit/wvl/1.0.4/link)
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 
 # WebView Logger
 A WebView Logger get the logs from console without using chrome://inspect.
@@ -53,11 +56,17 @@ Open WVL first then open webview logger to get listen to latest logs.
 
 Click on send icon to send logs to mail that you configured.
 
+---
 
+## Contact
 
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/arulmani33/wvl/issues/new), or email [Support](mailto:jerrymani33@gmail.com).
 
+---
 
+## Licence
 
+This software is lincense under ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 
 
     
