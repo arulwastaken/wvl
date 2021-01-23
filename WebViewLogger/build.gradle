@@ -75,7 +75,7 @@ ext {
 
     gitUrl = 'https://github.com/arulmani33/WVL.git'
 
-    libraryVersion = '1.0.4'
+    libraryVersion = '1.0.5'
 
     developerId = 'arulmani'
     developerName = 'Arul Mani'
@@ -88,57 +88,6 @@ ext {
 
 group = publishedGroupId
 version = libraryVersion
-
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            packaging 'aar'
-            groupId publishedGroupId
-            artifactId artifact
-
-            name libraryName
-            description libraryDescription
-
-            licenses {
-                license {
-                    name licenseName
-                    url licenseUrl
-                }
-            }
-            developers {
-                developer {
-                    id developerId
-                    name developerName
-                    email developerEmail
-                }
-            }
-            scm {
-                connection gitUrl
-                developerConnection gitUrl
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.srcDirs
-}
-//
-//task javadoc(type: Javadoc) {
-//    source = android.sourceSets.main.java.srcDirs
-//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-//}
-//
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
-
-artifacts {
-//    archives javadocJar
-    archives sourcesJar
-}
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -156,13 +105,13 @@ publishing {
             artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
 
             pom.withXml {
+
                 def dependenciesNode = asNode().appendNode('dependencies')
                 // Iterate over the api dependencies (we don't want the test ones), adding a <dependency> node for each
                 configurations.api.allDependencies.each {
                     def dependencyNode = dependenciesNode.appendNode('dependency')
                     dependencyNode.appendNode('groupId', it.group)
                     dependencyNode.appendNode('artifactId', it.name)
-                    dependencyNode.appendNode('name', it.name)
                     dependencyNode.appendNode('version', it.version)
                 }
             }
@@ -174,6 +123,8 @@ bintray {
 
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
 
     publications = ['BintrayPublication']
 
