@@ -37,6 +37,20 @@ Add below line in ```strings.xml``` .
     <string name="wvl_report_email">sample@mail.com</string>
     <string name="wvl_log_cache_size">20</string>
 
+Adding webchrome client for webview follow below implementation
+
+    webview.settings.apply {
+        javaScriptEnabled = true
+    }
+        // wvl implementation
+        webview.webChromeClient = object : WebViewLogger(application = application) {
+            override fun onConsoleMessage(consoleMessage: ConsoleMessage?, section: String) {
+                super.onConsoleMessage(consoleMessage, section)
+            }
+        }
+     webview.loadUrl("https://dev.to")
+
+
 # Screen shots
 
 When install your webview application wvl launcher icon also added into launcher screen like below spcified.
