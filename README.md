@@ -43,12 +43,15 @@ When install your webview application wvl launcher icon also added into launcher
 
 Open WVL first then open webview logger to get listen to latest logs.
 
-WVL view
+## WVL view
+
 ![WVL](https://github.com/arulmani33/wvl/blob/main/wvlScreenshot/Screenshot_20210123-171042_My%20WEbView%20Application.jpg)
 
-Application(Load sample web site in webview)
+## Application(Load sample web site in webview)
+
 ![Demo Application](https://github.com/arulmani33/wvl/blob/main/wvlScreenshot/Screenshot_20210123-171038_My%20WEbView%20Application.jpg)
 
+Click on send icon to send logs to mail that you configured.
 
 
 
