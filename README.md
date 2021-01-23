@@ -39,6 +39,21 @@ Add below line in ```strings.xml``` .
 
 When install your webview application wvl launcher icon also added into launcher screen like below spcified.
 
+![Launcher Screen](https://github.com/arulmani33/wvl/blob/main/wvlScreenshot/Screenshot_20210123-170940_One%20UI%20Home.jpg)
+
+Open WVL first then open webview logger to get listen to latest logs.
+
+WVL view
+![WVL](https://github.com/arulmani33/wvl/blob/main/wvlScreenshot/Screenshot_20210123-171042_My%20WEbView%20Application.jpg)
+
+Application(Load sample web site in webview)
+![Demo Application](https://github.com/arulmani33/wvl/blob/main/wvlScreenshot/Screenshot_20210123-171038_My%20WEbView%20Application.jpg)
+
+
+
+
+
+
 
 
 
